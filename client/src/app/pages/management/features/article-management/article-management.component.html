@@ -1,0 +1,46 @@
+<app-search-articles [articles]="articles" (onSearch)="search($event)"></app-search-articles>
+<div class="add-button-container">
+  <button class="add-button" (click)="addArticle()">הוספת תגובה</button>
+</div>
+
+<div class="container">
+  <mat-table #table [dataSource]="dataSource" matSort class="table">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> מזהה כתבה </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element._id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> כותרת הכתבה</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> מחבר</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="createDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> תאריך יצירה </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.createDate| date: 'dd/MM/yyyy H:mm' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="updateDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> תאריך עדכון </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.updateDate| date: 'dd/MM/yyyy H:mm'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="promotion">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> דרגת קידום</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.promotion}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="row" (click)="openArticle(row)"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50, 75, 100]">
+  </mat-paginator>
+</div>

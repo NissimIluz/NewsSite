@@ -1,0 +1,24 @@
+<div class="comment">
+
+    <h5>הוספת תגובה:</h5>
+    <form class="form row" [formGroup]="formGroup" dir="rtl" (submit)="add()">
+        <mat-form-field class="input">
+            <mat-label>כותרת</mat-label>
+            <input matInput placeholder="כותרת התגובה" formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>שם </mat-label>
+            <input matInput placeholder="שם המפרסם" formControlName="author">
+        </mat-form-field>
+
+        <mat-form-field class="input">
+            <mat-label>תגובה</mat-label>
+            <textarea class="textarea" matInput placeholder="כאן תוכל.י לרשום את תגובתך. נא לשמור על שפה נקייה"
+                formControlName="contentText"></textarea>
+        </mat-form-field>
+        <div class="button-container">
+            <input type="submit" class="button" [disabled]="!formGroup.valid" value="פרסום">
+        </div>
+    </form>
+</div>

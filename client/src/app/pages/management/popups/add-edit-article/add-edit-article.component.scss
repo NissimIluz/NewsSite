@@ -1,0 +1,42 @@
+.input{
+    margin: 7px 4%;
+    width: 90%;
+    border: #053644 1px dotted;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 8px 8px 5px #888888;
+}
+.sub-title {
+    height: 70px;
+}
+.content{
+    height: 500px;
+}
+
+.button-container{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    .button{
+        font-size: 20px;
+        cursor: pointer;
+        padding: 5px 50px;
+    }
+    .submit{
+        background-image: linear-gradient(140deg, #3ae1c5 0%, #0a95bf 50%, #2669dd 75%);
+        border: 2px solid #053644;
+    }
+    .cancel{
+        background-image: linear-gradient(140deg, #e1a73a 0%, #bf190a 50%, #dd268b 75%);
+        border: 2px solid #053644;
+    }
+    .submit:hover{
+        background-image: linear-gradient(140deg, #0e463d 0%, #0a95bf 50%, #0c1d3b 75%);
+        border: 2px solid #000000;
+    }
+    .cancel:hover{
+        background-image: linear-gradient(140deg, #593b03 0%, #bf2e0a 50%, #88123f 75%);
+        border: 2px solid #000000;
+    }
+}

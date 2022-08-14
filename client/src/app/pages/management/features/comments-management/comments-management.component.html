@@ -1,0 +1,66 @@
+<div class="container">
+  <mat-table #table [dataSource]="dataSource" matSort class="table">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> מזהה תגובה </mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="openComment(element)"> {{element._id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="articleId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> מזהה כתבה </mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="openComment(element)"> {{element.articleId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="commentFatherId">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> מזהה תגובת אב</mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="openComment(element)"> {{element.commentFatherId}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> כותרת </mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="openComment(element)"> {{element.title}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="createDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> תאריך יצירה </mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="openComment(element)"> {{element.createDate|  date: 'dd/MM/yyyy H:mm' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="updateDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> תאריך עדכון </mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="openComment(element)"> {{element.updateDate|  date: 'dd/MM/yyyy H:mm'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> שם מחבר</mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="openComment(element)"> {{element.author}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>שנה סטטוס</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <form dir="rtl">
+          <mat-form-field>
+            <mat-label>סטטוס</mat-label>
+            <mat-select [id]="element._id" [(value)]="element.status" (selectionChange)="setStatus($event)">
+              <mat-option [value]="commentStatus.approve">אושר</mat-option>
+              <mat-option [value]="commentStatus.blocked">חסום</mat-option>
+              <mat-option [value]="commentStatus.reported">דווח</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="numberOfReported">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> מספר הדיווחים </mat-header-cell>
+      <mat-cell *matCellDef="let element" (click)="openComment(element)"> {{element.numberOfReported}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50, 75, 100]">
+  </mat-paginator>
+</div>

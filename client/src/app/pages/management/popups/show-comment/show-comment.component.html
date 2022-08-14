@@ -1,0 +1,9 @@
+<div class="comment">
+    <div class="data-title">
+        <span class="title"> {{data.title}} </span>
+        <span class="data">
+            {{data.createDate|  date: 'dd/MM/yyyy H:mm'}}, {{data.author}}
+        </span>
+        <div class="contentText" [innerText]="data.contentText"></div>
+    </div>
+</div>

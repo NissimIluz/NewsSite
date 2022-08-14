@@ -1,0 +1,29 @@
+.comment{
+    padding: 15px 5px;
+    background-image: linear-gradient(140deg, #d6f5f0 0%, #9ddff3 50%, #c7dafb 75%);
+    h5 {
+        font-size: 25px;
+    }
+    .input{
+        border: 2px solid #37add1;
+        margin: 7px 4%;
+        width: 90%;
+    }
+    .textarea{
+        height: 200px;
+    }
+    .button-container{
+        width: 100%;
+        text-align: center;
+        .button{
+            background-image: linear-gradient(140deg, #3ae1c5 0%, #0a95bf 50%, #2669dd 75%);
+            border: 2px solid #053644;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .button:hover{
+            background-image: linear-gradient(140deg, #0e463d 0%, #0a95bf 50%, #0c1d3b 75%);
+            border: 2px solid #000000;
+        }
+    }
+}

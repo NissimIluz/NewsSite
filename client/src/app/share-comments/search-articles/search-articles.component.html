@@ -1,0 +1,18 @@
+<div class="search">
+    <div class="continuer">
+        <span>חיפוש כתבות: </span>
+        <form class="search-form" dir="rtl">
+            <mat-form-field>
+                <mat-label>חיפוש</mat-label>
+                <input type="text" placeholder="הכנס ערך לחיפוש" aria-label="הכנס ערך לחיפוש" matInput
+                    [formControl]="searchControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredArticles" [value]="option.title">
+                        {{option.title}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+        <button class="searchButton" (click)="search()"> חיפוש </button>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+.search {
+    .continuer{
+        font-size: 20px;
+        margin: 15px auto;
+        width: 400px; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .searchButton{
+            font-size: 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .search {
+        .continuer{
+            display: block;
+            font-size: 15px;
+            margin: 15px auto;
+            width: auto; 
+            .searchButton{
+                font-size: 15px;
+            }
+        }
+    }
+}

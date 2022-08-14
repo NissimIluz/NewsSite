@@ -1,0 +1,51 @@
+<form class="form row" [formGroup]="formGroup" dir="rtl" (submit)="submit()">
+
+    <mat-form-field class="input">
+        <mat-label>מזהה</mat-label>
+        <input matInput formControlName="_id" type="text">
+    </mat-form-field>
+
+
+    <mat-form-field class="input">
+        <mat-label>כותרת</mat-label>
+        <input matInput placeholder="כותרת הכתבה" formControlName="title" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>כותרת משנה </mat-label>
+        <textarea class="sub-title" matInput placeholder="כותברת משנה עבור הכתבה" formControlName="subTitle" type="text"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>מחבר </mat-label>
+        <input matInput placeholder="שם המחבר" formControlName="author" type="text">
+    </mat-form-field>
+
+
+    <mat-form-field class="input">
+        <mat-label>תאריך יצירה </mat-label>
+        <input matInput  formControlName="createDate" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>תאריך עדכון </mat-label>
+        <input matInput formControlName="updateDate" type="text">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>קידום </mat-label>
+        <input matInput formControlName="promotion" type="number">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>תוכן הכתבה </mat-label>
+        <textarea class="content" matInput placeholder="תוכן הכתבה. ניתן לכלול אלמנטים של HTML" formControlName="content"></textarea>
+    </mat-form-field>
+
+    <div class="button-container">
+        
+        <button class="button cancel" (click)="cancel()">בטל</button>
+        <input type="submit" class="button submit" [disabled]="!formGroup.valid || inProgress" [value]="isUpdate? 'עדכן' : 'פרסם'">
+    </div>
+  
+</form>

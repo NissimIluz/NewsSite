@@ -1,0 +1,31 @@
+<div *ngIf="article" class="container-viewer">
+    <div class="article">
+        <h1>{{article.title}}</h1>
+        <h2>{{article.subTitle}}</h2>
+        <div class="article-data">
+            <div class="dates">
+                {{article.createDate|  date: 'dd/MM/yyyy H:mm'}}
+                <span *ngIf="article.updateDate">( עדכון {{article.updateDate|  date: 'dd/MM/yyyy H:mm'}})</span>
+            </div>
+            <div class="author">
+                {{article.author}}
+            </div>
+        </div>
+        <div class="share-buttons">
+            אל תהנה לבד. שתף עם אחרים:
+        <share-buttons [theme]="'modern-dark'"
+        [include]="['facebook','twitter','linkedin','pinterest','reddit','tumblr','mix','viber','vk','telegram','messenger','whatsapp','xing','line','sms','email','print','copy']"
+        [show]="6"
+        [url]="'articleViewer?articleId=' + article._id"
+       ></share-buttons>
+    </div>
+
+        <div [innerHTML]="article.content"></div>
+    </div>
+
+    <app-comments [articleId]="article._id"></app-comments>
+</div>
+
+<div *ngIf="!article">
+    טוען... אנא המתן.
+</div>

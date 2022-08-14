@@ -1,0 +1,8 @@
+<app-search-articles [articles]="allArticles" (onSearch)="search($event)"></app-search-articles>
+<div class="articles">
+    <div class="article" *ngFor="let article of articles" [routerLink]="['/articleViewer/']" [queryParams]="{articleId: article._id}">
+        <h2>{{article.title}}</h2>
+        <h3>{{article.subTitle}}</h3>
+        <span>{{article.createDate | date: 'dd/MM/yyyy H:mm'  }}, {{article.author}}</span>
+    </div>
+</div>

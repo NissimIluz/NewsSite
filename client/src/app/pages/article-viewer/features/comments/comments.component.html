@@ -1,0 +1,47 @@
+<div class="comments" *ngIf="comments">
+    <div class="comment" *ngFor="let comment of filteredComments; let i=index">
+        <div class="data-title">{{i+1}}<span *ngIf="fatherIndex">{{fatherIndex}}</span>)
+            <span class="title"> {{comment.title}}</span>
+            <span class="data">
+                {{comment.createDate|  date: 'dd/MM/yyyy H:mm'}}, {{comment.author}}
+            </span>
+        </div>
+        <div class="contentText" [innerText]="comment.contentText"></div>
+        <div class="action">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            הגב
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <app-add-comment (addComment)="addComment($event, comment._id)"></app-add-comment>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-accordion style="width: 120px;">
+                <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            דווח
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    האם לדווח על התגובה?
+                    <button (click)="reportComment(comment._id)">דווח</button>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+        </div>
+
+        <app-comments class="inner-comments" [articleId]="articleId" [branchDeep]="1+branchDeep" [fatherId]="comment._id"
+            [comments]="comments" [fatherIndex]="  (fatherIndex? fatherIndex: '') +'.'+ (1+i).toString() ">
+        </app-comments>
+
+    </div>
+</div>
+
+<div class="add-comment" *ngIf="!fatherId">
+    <app-add-comment (addComment)="addComment($event)"></app-add-comment>
+</div>

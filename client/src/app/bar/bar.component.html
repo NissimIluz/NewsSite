@@ -1,0 +1,14 @@
+<div class="bar">
+
+    <div class="date-time">
+        <div class="date">{{ rxTime | date: 'dd/MM/yyyy' }}</div>
+        <div class="clock">{{ rxTime | date: 'H:mm:ss' }}</div>
+    </div>
+
+    <div class="buttons">
+        <mat-icon class="mat-icon" title="חזור לעמוד הבית" [routerLink]="['']">home</mat-icon>
+        <mat-icon class="mat-icon" title="חזור" (click)="backClicked()">exit_to_app</mat-icon>
+        <mat-icon class="mat-icon" title="הגדרות" [routerLink]="['management']">settings</mat-icon>
+    </div>
+</div>
+
